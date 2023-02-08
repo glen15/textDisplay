@@ -5,12 +5,16 @@ function App() {
   const [text, setText] = useState('');
   const [username, setUsername] = useState('');
   const [displayedText, setDisplayedText] = useState('');
+  const [displayedAuthor, setDisplayedAuthor] = useState('');
 
   useEffect(() => {
     fetch('http://52.78.184.230:8080/api/text')
       .then(res => res.json())
       .then(data => {
-        setDisplayedText(data.text);
+        let text = data.text.split("by")[0]
+        let author = data.text.split("by")[1]
+        setDisplayedText(text);
+        setDisplayedAuthor(author)
       });
   }, []);
 
@@ -27,7 +31,9 @@ function App() {
 
   return (
     <div className="App">
-      <h2>확신없는 랜덤 명언: {displayedText ? displayedText : "아직 저장된 명언이 없거나 서버와 연결되지 않았습니다."}</h2>
+      <h1>확신없는 랜덤 명언</h1>
+      <h2>{displayedText ? displayedText : "아직 저장된 명언이 없거나 서버와 연결되지 않았습니다."}</h2>
+      <h2>by {displayedAuthor}</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
