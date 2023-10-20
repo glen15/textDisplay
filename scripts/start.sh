@@ -4,4 +4,4 @@
 cd /home/ubuntu/textDisplay/textDisplay-backend
 
 # Start the server
-pm2 start server.js
+sudo pm2 start server.js
