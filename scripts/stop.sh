@@ -1,4 +1,4 @@
 #!/bin/bash
 
-# Find the process ID and kill it
-pkill -f "node server.js"
+# Find the process ID and kill it, but continue even if the command fails
+pkill -f "node server.js" || true
