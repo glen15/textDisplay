@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# Change to the project directory
 cd /home/ubuntu/textDisplay/textDisplay-backend
 
 export DATABASE_USER=$(aws ssm get-parameters --region ap-northeast-2 --names DATABASE_USER --query Parameters[0].Value | sed 's/"//g')
@@ -6,5 +8,5 @@ export DATABASE_PASSWORD=$(aws ssm get-parameters --region ap-northeast-2 --name
 export DATABASE_PORT=$(aws ssm get-parameters --region ap-northeast-2 --names DATABASE_PORT --query Parameters[0].Value | sed 's/"//g')
 export DATABASE_HOST=$(aws ssm get-parameters --region ap-northeast-2 --names DATABASE_HOST --query Parameters[0].Value | sed 's/"//g')
 
-
-authbind --deep pm2 start server.js
+# Start the server
+nohup node server.js > output.log 2>&1 &

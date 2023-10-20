@@ -1,4 +1,4 @@
 #!/bin/bash
-cd /home/ubuntu/textDisplay/textDisplay-backend
-pm2 stop server.js 2> /dev/null || true
-pm2 delete server.js 2> /dev/null || true
+
+# Find the process ID and kill it
+pkill -f "node server.js"
