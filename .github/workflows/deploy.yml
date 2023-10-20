@@ -40,9 +40,11 @@ jobs:
         working-directory: ./textDisplay-backend
         run: 
           touch .env
-          cat << EOF >> .env
-          ${{ secrets.ENV }}
-          EOF
+          echo DB_HOST=${{ secrets.DB_HOST }} >> .env
+          echo DB_USER=${{ secrets.DB_USER }} >> .env
+          echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> .env
+          echo DB_NAME=${{ secrets.DB_NAME }} >> .env
+          cat .env
           
       - name: zip distributions
         run: zip -r inha.zip ./textDisplay-backend ./appspec.yml ./scripts
