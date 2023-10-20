@@ -12,10 +12,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
+    host: "database-1.cpajpop7ewnt.ap-northeast-2.rds.amazonaws.com",
+    user: "admin",
+    password: 12345678,
+    database: "texts"
 });
 
 app.get('/api/text', (req, res) => {
