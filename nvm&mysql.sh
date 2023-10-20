@@ -10,6 +10,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 nvm install --lts
 # sleep 5
 sudo apt-get install npm -y
-sudo apt install mysql-client mysql-server -y
+sudo apt install mysql-client-core-8.0
 node -v
 npm -v
+
