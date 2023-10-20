@@ -19,7 +19,7 @@ const connection = mysql.createConnection({
 });
 
 app.get('/api', (req, res) => {
-    res.send('Hello, World!');
+    res.send('Hello, World!!');
 });
 
 
