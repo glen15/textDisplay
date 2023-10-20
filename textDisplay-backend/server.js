@@ -33,7 +33,7 @@ app.get('/api/text', (req, res) => {
 app.post('/api/text', (req, res) => {
     const { text, username } = req.body;
     console.log(req.body)
-    const exclamationText = `${text} 왜 다시 시작 안하는데`;
+    const exclamationText = `${text} 로그좀 보자`;
     connection.query('INSERT INTO texts SET ?', { text: exclamationText, username }, (error) => {
         if (error) throw error;
         res.sendStatus(201);
