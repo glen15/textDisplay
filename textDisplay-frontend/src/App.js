@@ -8,7 +8,7 @@ function App() {
   const [displayedAuthor, setDisplayedAuthor] = useState('');
 
   useEffect(() => {
-    fetch('http://13.125.15.20:8080/api/text')
+    fetch('http://13.125.15.20/api/text')
       .then(res => res.json())
       .then(data => {
         let text = data.text.split("by")[0]
@@ -20,7 +20,7 @@ function App() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    fetch('http://13.125.15.20:8080/api/text', {
+    fetch('http://13.125.15.20/api/text', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text, username }),
