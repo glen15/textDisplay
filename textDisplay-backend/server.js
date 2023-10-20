@@ -18,6 +18,11 @@ const connection = mysql.createConnection({
     database: process.env.DB_NAME
 });
 
+app.get('/api', (req, res) => {
+    res.send('Hello, World!');
+});
+
+
 app.get('/api/text', (req, res) => {
     connection.query('SELECT * FROM texts ORDER BY RAND() LIMIT 1', (error, results) => {
         if (error) throw Error
