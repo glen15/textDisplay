@@ -1,4 +1,4 @@
 #!/bin/bash
-
-# Find the process ID and kill it, but continue even if the command fails
-pkill -f "node server.js" || true
+cd /home/ubuntu/textDisplay/textDisplay-backend
+pm2 stop server.js 2> /dev/null || true
+pm2 delete server.js 2> /dev/null || true
